@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão Fugitivo</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            
+            background-image: url('src/x.jpeg');
+           
+            background-size: cover;
+            
+            background-position: center;
+            
+            font-family: Arial, sans-serif;
+            position: relative;
+            
+            color: white;
+            
+        }
+
+        .container {
+            text-align: center;
+            position: relative;
+            
+            width: 80%;
+            
+            height: 80%;
+            
+            overflow: hidden;
+            
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 17px;
+            cursor: pointer;
+            margin: 10px;
+            
+            transition: all 0.1s ease;
+            position: relative;
+            
+        }
+
+        .button-sim {
+            background-color: green;
+            color: white;
+        }
+
+        .button-nao {
+            background-color: red;
+            color: white;
+        }
+
+        .button-container {
+            display: flex;
+            /* Usando flexbox para alinhar os botões lado a lado */
+            justify-content: center;
+            /* Centralizando os botões */
+        }
+
+        .notice {
+            position: absolute;
+            /* Para que o aviso fique fixo na posição desejada */
+            bottom: 70px;
+            /* Distância da parte inferior */
+            right: 60px;
+            /* Distância da parte direita */
+            font-weight: bold;
+            /* Texto em negrito */
+            text-decoration: underline;
+            /* Texto sublinhado */
+            font-size: 17px;
+            /* Tamanho da fonte menor */
+            color: rgb(224, 8, 19);
+            /* Mudando a cor do texto para amarelo */
+        }
+
+        img {
+            margin-top: 20px;
+            /* Espaçamento acima da imagem */
+            max-width: 10%;
+            /* Faz a imagem ocupar até 10% da largura do contêiner */
+            height: auto;
+            /* Mantém a proporção da imagem */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Quer namorar comigo vida?</h1>
+        <div class="button-container">
+            <button class="button button-nao" onmouseover="moveButton(this)">Não</button>
+            <button class="button button-sim"
+                onclick="window.open('https://i.pinimg.com/564x/cd/6c/35/cd6c35c7de2229194f256ef7a70d5c0a.jpg', '_blank')">Sim</button>
+        </div>
+
+        <!-- Adicione a imagem abaixo dos botões -->
+        <img src="src/yasmin.jpeg" alt="Descrição da Imagem">
+    </div>
+
+    <div class="notice">
+        Obs: Se clicar no sim, favor preencher e me enviar uma cópia autenticada em cartório!
+    </div>
+
+    <script>
+        function moveButton(button) {
+            const container = document.querySelector('.container');
+            const maxWidth = container.clientWidth - button.offsetWidth; // Largura do container menos a largura do botão
+            const maxHeight = container.clientHeight - button.offsetHeight; // Altura do container menos a altura do botão
+            const randomX = Math.floor(Math.random() * maxWidth);
+            const randomY = Math.floor(Math.random() * maxHeight);
+
+            button.style.position = 'absolute'; // Para que o botão se mova livremente
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+        }
+    </script>
+</body>
+
+</html>
